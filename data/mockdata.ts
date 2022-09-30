@@ -3251,16 +3251,6 @@ export const mockdata = [
                     dateGroupModified: 1658489990000,
                     children: [
                       {
-                        id: 'LWXwuiP7Cw1E',
-                        title:
-                          'The Monster Under the Bed – “Embrace your fear.”',
-                        index: 0,
-                        dateAdded: 1572299078973,
-                        type: 'bookmark',
-                        url: 'http://themonsterunderthebed.net/',
-                        parentId: 'lSS7GzdIPDwe',
-                      },
-                      {
                         id: 'rV40TAhSnt1j',
                         title: 'Website normal',
                         index: 1,

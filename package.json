@@ -5,7 +5,7 @@
   "scripts": {
     "build": "nuxt generate && pnpm run package",
     "package": "node ./scripts/build.js",
-    "dev": "nuxt dev",
+    "dev": "cross-env MOCK_DATA=true nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -14,6 +14,7 @@
     "@types/archiver": "^5.3.1",
     "@types/node": "^18.7.23",
     "archiver": "^5.3.1",
+    "cross-env": "^7.0.3",
     "nuxt": "3.0.0-rc.11",
     "sass": "^1.55.0",
     "typescript": "^4.8.4"

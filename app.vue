@@ -1,23 +1,11 @@
 <script setup lang="ts">
-import { mockdata } from '@/data/mockdata';
-import { BookmarkTreeNode } from './types/browser';
-
-const bookmarksTree = ref<BookmarkTreeNode>();
+const { data: bookmarksTree } = useGetBookmarksTree();
 
 const bookmarksToolbar = computed(
   () =>
     bookmarksTree.value?.children?.find(el => el?.id?.includes('toolbar'))
-      ?.children ?? []
+      ?.children ?? [],
 );
-
-onMounted(async () => {
-  if (window?.browser) {
-    const bookmarksTreeValue = await window.browser.bookmarks.getTree();
-    bookmarksTree.value = bookmarksTreeValue[0];
-  } else {
-    bookmarksTree.value = mockdata[0] as BookmarkTreeNode;
-  }
-});
 </script>
 
 <template>
@@ -36,7 +24,7 @@ body,
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: #1e1e1e;
+  background-color: #2b2a33;
 }
 .main {
   height: 100%;
