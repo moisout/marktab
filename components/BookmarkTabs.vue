@@ -1,11 +1,16 @@
 <script setup lang="ts">
-  import { BookmarkTreeNode } from '@/types/browser';
+import { BookmarkTreeNode } from '@/types/browser';
 
 const { bookmarks } = defineProps<{
   bookmarks: BookmarkTreeNode[];
 }>();
 
+onMounted(() => {
+  console.log(bookmarks);
+});
+
 const selectedTab = ref(0);
+const selectedTabContent = computed(() => bookmarks[selectedTab.value]);
 </script>
 
 <template>
@@ -19,9 +24,7 @@ const selectedTab = ref(0);
       {{ bookmarkTab.title }}
     </div>
   </div>
-  <div class="bookmark-tab-content">
-    
-  </div>
+  <bookmark-tab-content :bookmarks="selectedTabContent" />
 </template>
 
 <style lang="scss">
@@ -35,11 +38,16 @@ const selectedTab = ref(0);
     border-radius: 25px;
     border: solid 1px #666570;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 150ms ease-in-out;
     box-sizing: border-box;
+    user-select: none;
 
     &:hover {
       background-color: #4b4a53;
+    }
+
+    &:active {
+      background-color: #4b4a53b1;
     }
 
     &.selected {

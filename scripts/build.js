@@ -1,6 +1,7 @@
 import archiver from 'archiver';
 import fs from 'fs';
 import pkg from '../package.json' assert { type: 'json' };
+import dayjs from 'dayjs';
 
 extractInlineScripts();
 createArchive();
@@ -16,7 +17,7 @@ function extractInlineScripts() {
     if (match[1]?.length) {
       html = html.replace(
         match[0],
-        `<script type="module" src="script${scripts.length}.js"></script>`
+        `<script type="module" src="script${scripts.length}.js"></script>`,
       );
 
       fs.writeFileSync(`./dist/script${scripts.length}.js`, match[1]);
@@ -27,33 +28,18 @@ function extractInlineScripts() {
 }
 
 function createArchive() {
-  const output = fs.createWriteStream(
-    `./build/marktab-${pkg.version}-${Date.now()}.zip`
-  );
+  const date = dayjs().format('YYYY-MM-DD');
+  const seconds = dayjs().get('second') + dayjs().get('minute') * 60 + dayjs().get('hour') * 3600;
+  const filename = `marktab-${pkg.version}-${date}-${seconds}.zip`;
+  const output = fs.createWriteStream(`./build/${filename}`);
   const archive = archiver('zip', {
-    zlib: { level: 1 },
+    zlib: { level: 9 },
   });
 
   output.on('close', () => {
-    console.log(archive.pointer() + ' total bytes');
-    console.log(
-      'archiver has been finalized and the output file descriptor has closed.'
-    );
-  });
-
-  output.on('end', () => {
-    console.log('Data has been drained');
-  });
-
-  archive.on('warning', err => {
-    if (err.code === 'ENOENT') {
-    } else {
-      throw err;
-    }
-  });
-
-  archive.on('error', err => {
-    throw err;
+    console.log('Build complete');
+    console.log(`Filename:  ${filename}`);
+    console.log(`Size:      ${archive.pointer()}`);
   });
 
   archive.pipe(output);
