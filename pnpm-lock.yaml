@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/archiver': ^5.3.1
-  '@types/node': ^18.7.23
+  '@types/node': ^20.0.0
   archiver: ^5.3.1
   cross-env: ^7.0.3
   dayjs: ^1.11.5
@@ -12,7 +12,7 @@ specifiers:
 
 devDependencies:
   '@types/archiver': 5.3.1
-  '@types/node': 18.7.23
+  '@types/node': 20.8.8
   archiver: 5.3.1
   cross-env: 7.0.3
   dayjs: 1.11.5
@@ -701,21 +701,23 @@ packages:
     resolution: {integrity: sha512-l6NQsDDyQUVeoTynNpC9uRvCUint/gSUXQA2euwmTuWGvPY5LSDUu6tkCtJB2SvGQlJQzLaKqcGZP4//7EDveA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.7.23
+      '@types/node': 20.8.8
     dev: true
 
   /@types/minimatch/5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
     dev: true
 
-  /@types/node/18.7.23:
-    resolution: {integrity: sha512-DWNcCHolDq0ZKGizjx2DZjR/PqsYwAcYUJmfMWqtVU2MBMG5Mo+xFZrhGId5r/O5HOuMPyQEcM6KUBp5lBZZBg==}
+  /@types/node/20.8.8:
+    resolution: {integrity: sha512-YRsdVxq6OaLfmR9Hy816IMp33xOBjfyOgUd77ehqg96CFywxAPbDbXvAsuN2KVg2HOT8Eh6uAfU+l4WffwPVrQ==}
+    dependencies:
+      undici-types: 5.25.3
     dev: true
 
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 18.7.23
+      '@types/node': 20.8.8
     dev: true
 
   /@vercel/nft/0.22.1:
@@ -2490,7 +2492,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 18.7.23
+      '@types/node': 20.8.8
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -4149,6 +4151,10 @@ packages:
       estree-walker: 3.0.1
       magic-string: 0.26.4
       unplugin: 0.9.6
+    dev: true
+
+  /undici-types/5.25.3:
+    resolution: {integrity: sha512-Ga1jfYwRn7+cP9v8auvEXN1rX3sWqlayd4HP7OKk4mZWylEmu3KzXDUGrQUN6Ol7qo1gPvB2e5gX6udnyEPgdA==}
     dev: true
 
   /undici/5.10.0:
