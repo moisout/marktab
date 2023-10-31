@@ -11,9 +11,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@types/archiver": "^5.3.1",
+    "@types/archiver": "^6.0.0",
     "@types/node": "^18.7.23",
-    "archiver": "^5.3.1",
+    "archiver": "^6.0.0",
     "cross-env": "^7.0.3",
     "dayjs": "^1.11.5",
     "nuxt": "3.0.0-rc.11",
